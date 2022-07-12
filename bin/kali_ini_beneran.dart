@@ -15,6 +15,23 @@ void main(List<String> arguments) {
   print('Heyyy adly here');
   print('');
 
+  //this is single-line comment
+
+  /*
+
+    this is
+    multi-line
+    comment
+   */
+
+  ///this is documentation comment
+  /**
+   This
+      is
+      also
+      documentation comment
+   **/
+
   /*
    To use each functions here
   */
