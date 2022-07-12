@@ -1,6 +1,12 @@
 import 'package:kali_ini_beneran/kali_ini_beneran.dart' as kali_ini_beneran;
 import 'dart:io';
 
+var testScope = 'Hello test variable scope here!'; //var still can be changed
+const one = 1;  //const means the value is set before running the program and can't be changed
+final String testFinal = "aaaaa"; //final similar to const but still could be declared during running the program
+String? favoriteFood; //? is set to nullable
+String? favoriteFood2 = 'Batagor';
+
 void main(List<String> arguments) {
 
   //to comment hello world
@@ -9,20 +15,51 @@ void main(List<String> arguments) {
   print('Heyyy adly here');
   print('');
 
-  //to use each functions
-  exceptions();
+  /*
+   To use each functions here
+  */
+
+  nullSafety(favoriteFood);
+  nullSafety2(favoriteFood2!); //use ! when 100% the result is won't be null
+  print('Hello, this is null safety 3 and the result is $favoriteFood');
+  print('Hello, this is null safety 4 and the result is ${favoriteFood = 'Nasgor'}');
   print('');
+
+
+  // print('Hello, const global variable here, $one !'); //const variable
+  // print('Hello $testFinal, you\'re the final variable!'); //final variable
+  // print('');
+
+  // print(testScope); //variable scope
+  // print('');
+
+  // greet('Adly', 2002); //Functions fundamental 1
+  // print('Rata-rata dari 10 & 5 adalah ${average(10, 5)}'); //Functions fundamental 2
+  // greetNewUser('Widy', 20, true); //Optional parameters 1
+  // greetNewUser('Adly', 18); //Optional parameters 1.2
+  // greetNewUser2(age: 19, name: 'Budi'); //Optional parameters 2
+  // print('');
+
+  // exceptions();
+  // print('');
+
   // operators();
   // print('');
+
   // booleans();
   // print('');
+
   // strings();
   // print('');
+
   // numbers();
   // print('');
+
   // variables();
   // print('');
+
   // userInput();
+  //print('');
 }
 
 void variables(){
@@ -201,4 +238,49 @@ void exceptions(){
   } finally {
     print('This line still executed');
   }
+}
+
+void nullSafety(String? food){
+  print('--Null safety--');
+  if (food == null) {
+    print('This is null safety 1 and result is Bought Nasi Goreng');
+  } else {
+    print('This is null safety 1 and result is Bought $food');
+  }
+}
+
+void nullSafety2(String food){
+  print('This is null safety 2 and result is bought a $food');
+}
+
+/*
+
+Functions chapter
+
+*/
+
+//void means no return
+void greet(String name, int bornYear) {
+  print('--Functions--');
+  var age = 2022 - bornYear;
+  print('Halo $name! Tahun ini Anda berusia $age tahun');
+}
+
+//with arrows
+void greeting() => print('Hello');
+double average2(num num1, num num2) => (num1 + num2) / 2;
+
+//without void means return is a must
+double average(num num1, num num2) {
+  return (num1 + num2) / 2;
+}
+
+//optional parameters 1 and to use it must according to the sequences
+void greetNewUser([String? name /* ? means null allowed */, int? age, bool? isVerified]){
+  print('Hello, $name. Your age is $age. And this is $isVerified');
+}
+//optional parameters 2 and can be used not based on the sequences
+void greetNewUser2({required String name, required int age, bool? isVerified}){
+  print('This is optional parameters 2');
+  print('Hello, $name. Your age is $age. And this is $isVerified');
 }
